@@ -1,3 +1,18 @@
+body {
+    background-image: url("../images/train-background.jpg");
+}
 .jumbotron {
     font-family: 'Righteous', cursive;
+}
+
+#train-logo {
+    width:10%;
+}
+
+.bottom-header{
+    margin-left:10%;
+}
+
+.card-header {
+    font-weight: bold;
 }
