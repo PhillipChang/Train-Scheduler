@@ -11,3 +11,25 @@ var firebaseConfig = {
 
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
+  var database = firebase.database();
+
+  var trainName = "";
+  var destination = "";
+  var fTrainTime = "";
+  var frequency = "";
+
+  $("#add-train").on("click",function(event){
+      event.preventDefault();
+
+      trainName = $("#train-name").val().trim();
+      destination = $("#destination").val().trim();
+      fTrainTime = $("#train-time").val().trim();
+      frequency = $("#frequency").val().trim();
+      console.log(trainName);
+      console.log(destination);
+      console.log(fTrainTime);
+      console.log(frequency);
+
+  });
+
