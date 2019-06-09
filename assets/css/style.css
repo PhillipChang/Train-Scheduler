@@ -16,3 +16,11 @@ body {
 .card-header {
     font-weight: bold;
 }
+.table {
+    opacity: 0.85;
+    background-color: lightgrey;
+}
+
+.form-control {
+    background-color: aliceblue;
+}
