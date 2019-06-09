@@ -31,5 +31,22 @@ var firebaseConfig = {
       console.log(fTrainTime);
       console.log(frequency);
 
-  });
+      database.ref().push({
+          trainName: trainName,
+          destination: destination,
+          fTrainTime: fTrainTime,
+          frequency: frequency,
+      });
+    });
+
+    database.ref().on("child_added", function(Childsnapshot){
+
+        console.log("new train: " +Childsnapshot.val().trainName);
+
+        $(".db").append("<tr><td>" +Childsnapshot.val().trainName +"</td><td>" +Childsnapshot.val().destination
+        +"</td><td>" +Childsnapshot.val().fTrainTime +"</td><td>" +Childsnapshot.val().frequency +"</td>");
+    }, function(errorObject) {
+        console.log("Errors handled: " +errorObject.code);
+    });
+
 
