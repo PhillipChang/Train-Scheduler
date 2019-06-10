@@ -49,23 +49,16 @@ $("#add-train").on("click", function (event) {
     fTrainTime = $("#train-time").val().trim();
     frequency = parseInt($("#frequency").val().trim());
 
-    var timeConvert = moment(fTrainTime, "HH:mm");
-    console.log("Time Convert: " + timeConvert);
-
-    var now = moment();
-console.log("Current Time: " + moment(now).format("hh:mm"));
+var timeConvert = moment(fTrainTime, "HH:mm");
 
 var timeDiff = moment().diff(moment(timeConvert), "minutes");
 
 var timeRemain = timeDiff % frequency;
-console.log("time remain: " + timeRemain);
 
 nextTrainMins = frequency - timeRemain;
-console.log("Next train in: " + nextTrainMins);
 
 nextTrain = moment().add(nextTrainMins, "minutes");
 nextTrain = moment(nextTrain).format("LT");
-console.log("Arrive: " + moment(nextTrain).format("hh:mm"));
 
 
     database.ref().push({
