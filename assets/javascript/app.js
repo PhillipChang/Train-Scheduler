@@ -21,6 +21,18 @@ var frequency = "";
 var nextTrain = "";
 var nextTrainMins = "";
 
+var clock;
+
+function update(){
+    clock = moment().format("LTS");
+    $(".clock").html("Current Time: " +clock);
+}
+// Time Now
+$(document).ready(function(){
+update();    
+setInterval(update, 1000);
+});
+
 //   EventListner for adding new trains
 $("#add-train").on("click", function (event) {
     event.preventDefault();
