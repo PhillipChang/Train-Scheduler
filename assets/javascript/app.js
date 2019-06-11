@@ -20,7 +20,6 @@ var fTrainTime = "";
 var frequency = "";
 var nextTrain = "";
 var nextTrainMins = "";
-
 var clock;
 
 function update(){
@@ -60,7 +59,6 @@ nextTrainMins = frequency - timeRemain;
 nextTrain = moment().add(nextTrainMins, "minutes");
 nextTrain = moment(nextTrain).format("LT");
 
-
     database.ref().push({
         trainName: trainName,
         destination: destination,
@@ -70,16 +68,19 @@ nextTrain = moment(nextTrain).format("LT");
         nextTrainMins: nextTrainMins,
     });
 }
+$("#train-name").val("");
+$("#destination").val("");
+$("#train-time").val("");
+$("#frequency").val("");
 });
 
 database.ref().on("child_added", function (Childsnapshot) {
 
     $(".db").append("<tr><td>" + Childsnapshot.val().trainName + "</td><td>" + Childsnapshot.val().destination
-        + "</td><td>" + Childsnapshot.val().frequency + "</td><td>" +Childsnapshot.val().nextTrain +"</td><td>" +Childsnapshot.val().nextTrainMins +"</td>");
+    + "</td><td>" + Childsnapshot.val().frequency + "</td><td>" +Childsnapshot.val().nextTrain +"</td><td>" +Childsnapshot.val().nextTrainMins +"</td>");
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
-
 
 
 
