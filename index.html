@@ -5,18 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <!-- Firebase References -->
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Added Moment JS -->
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.0/moment.min.js"></script>
 
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -25,8 +25,7 @@
     <link rel="icon" href="assets/images/train.png">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Domine|Righteous&display=swap" rel="stylesheet">
 
   <title>Train Scheduler</title>
   </head>
@@ -37,6 +36,7 @@
                     <img src="assets/images/train-logo.png" id="train-logo" alt="train-logo">
                     Where's my train?</h1>
                 <h5 class="text-center bottom-header">Realtime Train Schedule</h5>
+                <h5 class="clock"></h5>
             </div>
 
             <div class="row">
@@ -57,7 +57,7 @@
                                 <th scope="col">Minutes Away</th>
                               </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="db">
                             </tbody>
                           </table>
                         </div>
@@ -75,22 +75,26 @@
                               <!-- Add New Train Form -->
                               <form id="trian-form">
                                 <div class="form-group">
-                                  <label for="train-name-input">Train Name</label>
-                                  <input class="form-control" id="train-name-input" type="text">
+                                  <label for="train-name-input" class="control-label">Train Name</label>
+                                  <input class="form-control" id="train-name" type="text" required>
+                                  <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group">
                                   <label for="destination-input">Destination</label>
-                                  <input class="form-control" id="destination-input" type="text">
+                                  <input class="form-control" id="destination" type="text" required>
+                                  <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group">
                                   <label for="first-trian-time-input">First Train Time (HH:mm - military time)</label>
-                                  <input class="form-control" id="train-time-input" type="text">
+                                  <input class="form-control" id="train-time" type="text" required>
+                                  <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group">
                                   <label for="frequency-input">Frequency (min)</label>
-                                  <input class="form-control" id="frequency-input" type="text">
+                                  <input class="form-control" id="frequency" type="text" required>
+                                  <div class="help-block with-errors"></div>
                                 </div>
-                                <button class="btn btn-primary" id="add-train-btn">Add Train</button>
+                                <button class="btn btn-primary" id="add-train">Add Train</button>
                               </form>
                             </div>
                           </div>

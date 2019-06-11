@@ -48,7 +48,7 @@ $("#add-train").on("click", function (event) {
     fTrainTime = $("#train-time").val().trim();
     frequency = parseInt($("#frequency").val().trim());
 
-var timeConvert = moment(fTrainTime, "HH:mm");
+var timeConvert = moment(fTrainTime, "HH:mm").subtract(1,"years");
 
 var timeDiff = moment().diff(moment(timeConvert), "minutes");
 
@@ -81,6 +81,3 @@ database.ref().on("child_added", function (Childsnapshot) {
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
-
-
-
