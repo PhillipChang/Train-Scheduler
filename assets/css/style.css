@@ -9,6 +9,11 @@ body {
     width:10%;
 }
 
+.clock {
+    margin-left: 10%;
+    text-align: center;
+}
+
 .bottom-header{
     margin-left:10%;
 }
@@ -16,6 +21,11 @@ body {
 .card-header {
     font-weight: bold;
 }
+
+.card-body {
+    font-family: 'Domine', serif;
+}
+
 .table {
     opacity: 0.85;
     background-color: lightgrey;
